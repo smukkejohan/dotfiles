@@ -100,7 +100,7 @@ require_brew git
 # yes, yes, use git-flow, please :)
 require_brew git-flow
 # why is everyone still not using GPG?
-require_brew gnupg
+# using macgpg2 #require_brew gnupg
 # Install GNU `sed`, overwriting the built-in `sed`
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
 require_brew gnu-sed --default-names
@@ -128,6 +128,13 @@ require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
 
+require_brew lua52
+require_brew ngrep
+require_brew boost
+require_brew cgal
+require_brew cppunit
+require_brew cmake
+
 bot "if you would like to start memcached at login, run this:"
 echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
 bot "if you would like to start memcached now, run this:"
@@ -141,12 +148,20 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 # cloud storage
 #require_cask amazon-cloud-drive
-require_cask box-sync
-#require_cask dropbox
+#require_cask box-sync
+# communicatio
+require_cask dropbox
+require_cask lingon-x
+require_cask logmein-hamachi
+require_cask 1password
+require_cask spotify
+
 #require_cask evernote
 #require_cask skydrive
 
-# communication
+require_cask google-drive
+require_cask tower
+
 #require_cask adium
 require_cask slack
 
@@ -158,16 +173,27 @@ require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
-require_cask lastpass
+#require_cask lastpass
 #require_cask macvim
 require_cask sizeup
+require_cask flux
 #require_cask simple-comic
-#require_cask sketchup
+require_cask sketchup
 require_cask sublime-text
 require_cask the-unarchiver
-#require_cask transmission
+require_cask transmission
 require_cask vlc
 require_cask xquartz
+require_cask caffeine
+require_cask cycling74-max
+require_cask webstorm
+require_cask teamviewer
+require_cask skype
+require_cask transmit
+require_cask istat-menus
+
+require_cask daisydisk
+require_cask dash
 
 # development browsers
 require_cask breach
@@ -177,10 +203,16 @@ require_cask google-chrome
 require_cask google-chrome-canary
 require_cask torbrowser
 
-# virtal machines
-require_cask virtualbox
+#require_cask fritzing
+require_cask arduino
+require_cask processing
+#require_cask sequel-pro
+
+# virtual machines
+#require_cask virtualbox
+require_cask parallels-desktop
 # chef-dk, berkshelf, etc
-require_cask chefdk
+#require_cask chefdk
 # vagrant for running dev environments using docker images
 require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
@@ -211,8 +243,8 @@ sudo touch /Private/var/vm/sleepimage;ok
 running "…and make sure it can’t be rewritten"
 sudo chflags uchg /Private/var/vm/sleepimage;ok
 
-#running "Disable the sudden motion sensor as it’s not useful for SSDs"
-# sudo pmset -a sms 0;ok
+running "Disable the sudden motion sensor as it’s not useful for SSDs"
+sudo pmset -a sms 0;ok
 
 ################################################
 # Optional / Experimental                      #
@@ -223,10 +255,6 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 # sudo scutil --set HostName "antic"
 # sudo scutil --set LocalHostName "antic"
 # sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "antic"
-
-# running "Disable smooth scrolling"
-# (Uncomment if you’re on an older Mac that messes up the animation)
-# defaults write NSGlobalDomain NSScrollAnimationEnabled -bool false;ok
 
 # running "Disable Resume system-wide"
 # defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false;ok
@@ -246,9 +274,6 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 # defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 # defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;ok
-
-# running "Enable the MacBook Air SuperDrive on any Mac"
-# sudo nvram boot-args="mbasd=1";ok
 
 # running "Remove Dropbox’s green checkmark icons in Finder"
 # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
@@ -270,12 +295,12 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 #running "Add a spacer to the right side of the Dock (where the Trash is)"
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
 
-running "Set a custom wallpaper image"
+#running "Set a custom wallpaper image"
 # `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-sudo ln -s ~/.dotfiles/img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;ok
+#rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+#sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+#sudo ln -s ~/.dotfiles/img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;ok
 
 
 ################################################
@@ -368,8 +393,8 @@ sudo systemsetup -setcomputersleep Off > /dev/null;ok
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
 
-running "Disable Notification Center and remove the menu bar icon"
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
+#running "Disable Notification Center and remove the menu bar icon"
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
 
 running "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
@@ -393,8 +418,8 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
 
-running "Disable “natural” (Lion-style) scrolling"
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
+#running "Disable “natural” (Lion-style) scrolling"
+#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
 running "Increase sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
@@ -602,15 +627,15 @@ bot "Configuring Hot Corners"
 # 11: Launchpad
 # 12: Notification Center
 
-running "Top left screen corner → Mission Control"
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-running "Top right screen corner → Desktop"
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-running "Bottom right screen corner → Start screen saver"
-defaults write com.apple.dock wvous-br-corner -int 5
-defaults write com.apple.dock wvous-br-modifier -int 0;ok
+#running "Top left screen corner → Mission Control"
+#defaults write com.apple.dock wvous-tl-corner -int 2
+#defaults write com.apple.dock wvous-tl-modifier -int 0;ok
+#running "Top right screen corner → Desktop"
+#defaults write com.apple.dock wvous-tr-corner -int 4
+#defaults write com.apple.dock wvous-tr-modifier -int 0;ok
+#running "Bottom right screen corner → Start screen saver"
+#defaults write com.apple.dock wvous-br-corner -int 5
+#defaults write com.apple.dock wvous-br-modifier -int 0;ok
 
 ###############################################################################
 bot "Configuring Safari & WebKit"
@@ -655,7 +680,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 bot "Configuring Mail"
 ###############################################################################
 
-
 running "Disable send and reply animations in Mail.app"
 defaults write com.apple.mail DisableReplyAnimations -bool true
 defaults write com.apple.mail DisableSendAnimations -bool true;ok
@@ -668,21 +692,21 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\
 
 running "Display emails in threaded mode, sorted by date (oldest at the top)"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
+#defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
 
 running "Disable inline attachments (just show the icons)"
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
 
 running "Disable automatic spell checking"
-defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
+#defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 ###############################################################################
 bot "Spotlight"
 ###############################################################################
 
-# running "Hide Spotlight tray-icon (and subsequent helper)"
-# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
+#running "Hide Spotlight tray-icon (and subsequent helper)"
+#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
 
 running "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -748,10 +772,10 @@ defaults write com.googlecode.iterm2 HotkeyCode -int 50;
 defaults write com.googlecode.iterm2 HotkeyModifiers -int 262401;
 ok
 
-# running "Make iTerm2 load new tabs in the same directory"
-# defaults export com.googlecode.iterm2 /tmp/plist
-# /usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" /tmp/plist
-# defaults import com.googlecode.iterm2 /tmp/plist;ok
+running "Make iTerm2 load new tabs in the same directory"
+defaults export com.googlecode.iterm2 /tmp/plist
+/usr/libexec/PlistBuddy -c "set \"New Bookmarks\":0:\"Custom Directory\" Recycle" /tmp/plist
+defaults import com.googlecode.iterm2 /tmp/plist;ok
 
 
 ###############################################################################
@@ -822,7 +846,7 @@ running "Disable smart quotes as it’s annoying for messages that contain code"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false;ok
 
 running "Disable continuous spell checking"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
+#defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false;ok
 
 ###############################################################################
 bot "Google Chrome & Google Chrome Canary"
@@ -853,7 +877,7 @@ cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublim
 bot "NPM Globals..."
 ###############################################################################
 
-require_npm antic
+#require_npm antic
 require_npm bower
 # http://ionicframework.com/
 require_npm cordova

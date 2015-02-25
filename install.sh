@@ -14,62 +14,62 @@ if [[ ! -e ~/.dotfiles_backup ]]; then
     mkdir ~/.dotfiles_backup
 fi
 
-bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
+#bot "Hi. I'm going to make your OSX system better. But first, I need to configure this project based on your info so you don't check in files to github as Adam Eivy from here on out :)"
 
-fullname=`osascript -e "long user name of (system info)"`
-me=`dscl . -read /Users/$(whoami)`
+#fullname=`osascript -e "long user name of (system info)"`
+#me=`dscl . -read /Users/$(whoami)`
 
-lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
-firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
-email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
+#lastname=`dscl . -read /Users/$(whoami) | grep LastName | sed "s/LastName: //"`
+#firstname=`dscl . -read /Users/$(whoami) | grep FirstName | sed "s/FirstName: //"`
+#email=`dscl . -read /Users/$(whoami)  | grep EMailAddress | sed "s/EMailAddress: //"`
 
-if [[ ! "$firstname" ]];then
-  response='n'
-else
-  echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
-  read -r -p "Is this correct? [Y|n] " response
-fi
+#if [[ ! "$firstname" ]];then
+#  response='n'
+#else
+#  echo -e "I see that your full name is $COL_YELLOW$firstname $lastname$COL_RESET"
+#  read -r -p "Is this correct? [Y|n] " response
+#fi
 
-if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your first name? " firstname
-	read -r -p "What is your last name? " lastname
-fi
-fullname="$firstname $lastname"
+#if [[ $response =~ ^(no|n|N) ]];then
+#	read -r -p "What is your first name? " firstname
+#	read -r -p "What is your last name? " lastname
+#fi
+#fullname="$firstname $lastname"
 
-bot "Great $fullname, "
+#bot "Great $fullname, "
 
-if [[ ! $email ]];then
-  response='n'
-else
-  echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
-  read -r -p "Is this correct? [Y|n] " response
-fi
+#if [[ ! $email ]];then
+#  response='n'
+#else
+#  echo -e "The best I can make out, your email address is $COL_YELLOW$email$COL_RESET"
+#  read -r -p "Is this correct? [Y|n] " response
+#fi
 
-if [[ $response =~ ^(no|n|N) ]];then
-	read -r -p "What is your email? " email
-fi
+#if [[ $response =~ ^(no|n|N) ]];then
+#	read -r -p "What is your email? " email
+#fi
 
-read -r -p "What is your github.com username? " githubuser
+#read -r -p "What is your github.com username? " githubuser
 
-running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
+#running "replacing items in .gitconfig with your info ($COL_YELLOW$fullname, $email, $githubuser$COL_RESET)"
 
 # test if gnu-sed or osx sed
 
-sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
-if [[ ${PIPESTATUS[0]} != 0 ]]; then
-  echo
-  running "looks like you are using OSX sed rather than gnu-sed, accommodating"
-  sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
-  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
-  sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
-else
-  echo
-  bot "looks like you are already using gnu-sed. woot!"
-  sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
-  sed -i 's/atomantic/'$githubuser'/' .gitconfig;
-  sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
-fi
+#sed -i 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig > /dev/null 2>&1 | true
+#if [[ ${PIPESTATUS[0]} != 0 ]]; then
+#  echo
+#  running "looks like you are using OSX sed rather than gnu-sed, accommodating"
+#  sed -i '' 's/Adam Eivy/'$firstname' '$lastname'/' .gitconfig;
+#  sed -i '' 's/adam.eivy@disney.com/'$email'/' .gitconfig;
+#  sed -i '' 's/atomantic/'$githubuser'/' .gitconfig;
+#  sed -i '' 's/antic/'$(whoami)'/g' .zshrc;ok
+#else
+#  echo
+#  bot "looks like you are already using gnu-sed. woot!"
+#  sed -i 's/adam.eivy@disney.com/'$email'/' .gitconfig;
+#  sed -i 's/atomantic/'$githubuser'/' .gitconfig;
+#  sed -i 's/antic/'$(whoami)'/g' .zshrc;ok
+#fi
 
 # read -r -p "OK? [Y/n] " response
 #  if [[ ! $response =~ ^(yes|y|Y| ) ]];then
@@ -128,6 +128,23 @@ symlinkifne .zlogout
 symlinkifne .zprofile
 symlinkifne .zshenv
 symlinkifne .zshrc
+
+#cd "$(dirname "${BASH_SOURCE}")"
+#function doIt() {
+#  rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" --exclude "README.md"  --exclude "restore.sh"  --exclude "img/"  --exclude ".git_template"  --exclude "configs" --exclude "oh-my-zsh" --exclude "z-zsh" -av . ~
+#}
+#if [ "$1" == "--force" -o "$1" == "-f" ]; then
+#  doIt
+#else
+#  read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+#  echo
+#  if [[ $REPLY =~ ^[Yy]$ ]]; then
+#    doIt
+#  fi
+#fi
+#unset doIt
+#source ~/.profile
+
 
 popd > /dev/null 2>&1
 

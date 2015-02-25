@@ -6,7 +6,7 @@ export EDITOR='subl -w'
 # Temporary aliases useful for demos, other current projects
 #########################################################################
 export MYTEMP=~/Documents/Temp
-export MYCODE=~/Documents/Code
+export MYCODE=~/dev
 export MYSCRATCH=~/Documents/Temp/Scratch
 export MYDOWNLOADS=~/Downloads
 export MYDOCUMENTS=~/Documents
