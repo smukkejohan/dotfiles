@@ -880,7 +880,7 @@ bot "NPM Globals..."
 #require_npm antic
 require_npm bower
 # http://ionicframework.com/
-require_npm cordova
+#require_npm cordova
 require_npm ionic
 # https://github.com/markdalgleish/bespoke.js
 require_npm generator-bespoke
@@ -897,6 +897,7 @@ require_npm trash
 require_npm vtop
 require_npm yo
 
+require_npm keybase
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
