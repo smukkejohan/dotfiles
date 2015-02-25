@@ -51,6 +51,8 @@ alias oo="open ."
 
 alias aq=aquamacs
 
+alias tw="gittower ."
+
 #############################
 # Utilities
 
