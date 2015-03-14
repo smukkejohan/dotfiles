@@ -128,12 +128,18 @@ require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
 
-require_brew lua52
+#require_brew lua52
 require_brew ngrep
 require_brew boost
 require_brew cgal
 require_brew cppunit
 require_brew cmake
+
+
+# Python
+require_brew python
+
+pip install virtualenvwrapper ipython
 
 bot "if you would like to start memcached at login, run this:"
 echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"

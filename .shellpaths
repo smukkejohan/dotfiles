@@ -20,3 +20,8 @@ export PATH=$PATH:/usr/local/zend/mysql/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 
 export PATH=$PATH:~/.nvm/v0.10.22/bin
+
+# Python
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+source /usr/local/bin/virtualenvwrapper.sh

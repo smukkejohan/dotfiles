@@ -94,8 +94,8 @@ function symlinkifne {
     if [[ -e $1 ]]; then
         # file exists
         if [[ -L $1 ]]; then
-            # it's already a simlink (could have come from this project)
-            echo -en '\tsimlink exists, skipped\t';ok
+            # it's already a symlink (could have come from this project)
+            echo -en '\tsymlink exists, skipped\t';ok
             return
         fi
         # backup file does not exist yet
@@ -128,6 +128,9 @@ symlinkifne .zlogout
 symlinkifne .zprofile
 symlinkifne .zshenv
 symlinkifne .zshrc
+
+symlinkifne .virtualenvs/postactivate
+symlinkifne .virtualenvs/postdeactivate
 
 #cd "$(dirname "${BASH_SOURCE}")"
 #function doIt() {
