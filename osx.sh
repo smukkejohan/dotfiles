@@ -139,7 +139,10 @@ require_brew cmake
 # Python
 require_brew python
 
-pip install virtualenvwrapper ipython
+
+bot "Installing python libs via pip..."
+require_pip virtualenvwrapper
+require_pip ipython
 
 bot "if you would like to start memcached at login, run this:"
 echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
@@ -175,7 +178,7 @@ require_cask slack
 #require_cask comicbooklover
 require_cask diffmerge
 #require_cask flash-player
-require_cask github
+#require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
@@ -192,7 +195,7 @@ require_cask vlc
 require_cask xquartz
 require_cask caffeine
 require_cask cycling74-max
-require_cask webstorm
+#require_cask webstorm
 require_cask teamviewer
 require_cask skype
 require_cask transmit
@@ -202,7 +205,7 @@ require_cask daisydisk
 require_cask dash
 
 # development browsers
-require_cask breach
+#require_cask breach
 require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
@@ -216,7 +219,7 @@ require_cask processing
 
 # virtual machines
 #require_cask virtualbox
-require_cask parallels-desktop
+#require_cask parallels-desktop
 # chef-dk, berkshelf, etc
 #require_cask chefdk
 # vagrant for running dev environments using docker images
