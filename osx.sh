@@ -20,7 +20,7 @@ running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
 	action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     if [[ $? != 0 ]]; then
     	error "unable to install homebrew, script $0 abort!"
     	exit -1
@@ -111,8 +111,6 @@ require_brew imagemagick
 require_brew imagesnap
 # jq is a JSON grep
 require_brew jq
-# http://maven.apache.org/
-require_brew maven
 require_brew memcached
 require_brew nmap
 require_brew node
@@ -135,10 +133,8 @@ require_brew cgal
 require_brew cppunit
 require_brew cmake
 
-
 # Python
 require_brew python
-
 
 bot "Installing python libs via pip..."
 require_pip virtualenvwrapper
@@ -158,12 +154,12 @@ brew tap caskroom/versions > /dev/null 2>&1
 # cloud storage
 #require_cask amazon-cloud-drive
 #require_cask box-sync
-# communicatio
+# communication
+require_cask atom
 require_cask dropbox
-require_cask lingon-x
-require_cask logmein-hamachi
+#require_cask logmein-hamachi
 require_cask 1password
-require_cask spotify
+#require_cask spotify
 
 #require_cask evernote
 #require_cask skydrive
@@ -180,31 +176,31 @@ require_cask diffmerge
 #require_cask flash-player
 #require_cask github
 require_cask gpgtools
-require_cask ireadfast
+#require_cask ireadfast
 require_cask iterm2
 #require_cask lastpass
 #require_cask macvim
 require_cask sizeup
 require_cask flux
 #require_cask simple-comic
-require_cask sketchup
+#require_cask sketchup
 require_cask sublime-text
 require_cask the-unarchiver
 require_cask transmission
 require_cask vlc
-require_cask xquartz
+#require_cask xquartz
 require_cask caffeine
-require_cask cycling74-max
+#require_cask cycling74-max
 #require_cask webstorm
-require_cask teamviewer
-require_cask skype
+#require_cask teamviewer
+#require_cask skype
 require_cask transmit
-require_cask istat-menus
+#require_cask istat-menus
 
 require_cask daisydisk
 require_cask dash
 
-# development browsers
+#development browsers
 #require_cask breach
 require_cask firefox
 #require_cask firefox-aurora
@@ -223,7 +219,7 @@ require_cask processing
 # chef-dk, berkshelf, etc
 #require_cask chefdk
 # vagrant for running dev environments using docker images
-require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
+# require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
 
 bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
@@ -275,8 +271,8 @@ sudo pmset -a sms 0;ok
 # # See https://github.com/mathiasbynens/dotfiles/issues/237
 # echo "0x08000100:0" > ~/.CFUserTextEncoding;ok
 
-# running "Stop iTunes from responding to the keyboard media keys"
-# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null;ok
+running "Stop iTunes from responding to the keyboard media keys"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null;ok
 
 # running "Show icons for hard drives, servers, and removable media on the desktop"
 # defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -288,21 +284,10 @@ sudo pmset -a sms 0;ok
 # file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 # [ -e "${file}" ] && mv -f "${file}" "${file}.bak";ok
 
-# running "Wipe all (default) app icons from the Dock"
+running "Wipe all (default) app icons from the Dock"
 # # This is only really useful when setting up a new Mac, or if you don’t use
 # # the Dock to launch apps.
-# defaults write com.apple.dock persistent-apps -array "";ok
-
-#running "Enable the 2D Dock"
-#defaults write com.apple.dock no-glass -bool true;ok
-
-#running "Disable the Launchpad gesture (pinch with thumb and three fingers)"
-#defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;ok
-
-#running "Add a spacer to the left side of the Dock (where the applications are)"
-#defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
-#running "Add a spacer to the right side of the Dock (where the Trash is)"
-#defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
+defaults write com.apple.dock persistent-apps -array "";ok
 
 #running "Set a custom wallpaper image"
 # `DefaultDesktop.jpg` is already a symlink, and
@@ -402,8 +387,8 @@ sudo systemsetup -setcomputersleep Off > /dev/null;ok
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
 
-#running "Disable Notification Center and remove the menu bar icon"
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
+running "Disable Notification Center and remove the menu bar icon"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
 
 running "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
@@ -426,9 +411,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCorner
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
-
-#running "Disable “natural” (Lion-style) scrolling"
-#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
 running "Increase sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
@@ -554,7 +536,6 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
 running "Show the ~/Library folder"
 chflags nohidden ~/Library;ok
 
-
 running "Expand the following File Info panes: “General”, “Open with”, and “Sharing & Permissions”"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
@@ -622,30 +603,6 @@ find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -dele
 running "Add iOS Simulator to Launchpad"
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
 
-
-bot "Configuring Hot Corners"
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-
-#running "Top left screen corner → Mission Control"
-#defaults write com.apple.dock wvous-tl-corner -int 2
-#defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-#running "Top right screen corner → Desktop"
-#defaults write com.apple.dock wvous-tr-corner -int 4
-#defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-#running "Bottom right screen corner → Start screen saver"
-#defaults write com.apple.dock wvous-br-corner -int 5
-#defaults write com.apple.dock wvous-br-modifier -int 0;ok
-
 ###############################################################################
 bot "Configuring Safari & WebKit"
 ###############################################################################
@@ -707,15 +664,12 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 running "Disable inline attachments (just show the icons)"
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
 
-running "Disable automatic spell checking"
-#defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
-
 ###############################################################################
 bot "Spotlight"
 ###############################################################################
 
-#running "Hide Spotlight tray-icon (and subsequent helper)"
-#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
+running "Hide Spotlight tray-icon (and subsequent helper)"
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
 
 running "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -878,7 +832,6 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 ###############################################################################
 bot "Sublime Text"
 ###############################################################################
-
 running "Install Sublime Text settings"
 cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null;ok
 
@@ -911,7 +864,6 @@ require_npm keybase
 bot "Ruby Gems..."
 ###############################################################################
 require_gem git-up
-
 
 ###############################################################################
 # Kill affected applications                                                  #
