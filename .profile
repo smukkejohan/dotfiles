@@ -11,6 +11,8 @@ export CFLAGS="-O2 -arch x86_64"
 export LDFLAGS="-L/opt/local/lib"
 export CPPFLAGS="-I/opt/local/include"
 
+export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin:$PATH"
+
 source ~/.shellvars
 source ~/.shellfn
 source ~/.shellpaths
