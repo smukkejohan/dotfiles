@@ -20,7 +20,7 @@ running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
 	action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     if [[ $? != 0 ]]; then
     	error "unable to install homebrew, script $0 abort!"
     	exit -1
@@ -124,10 +124,8 @@ require_brew cgal
 require_brew cppunit
 require_brew cmake
 
-
 # Python
 require_brew python
-
 
 bot "Installing python libs via pip..."
 require_pip virtualenvwrapper
@@ -150,47 +148,34 @@ brew tap caskroom/versions > /dev/null 2>&1
 
 nrequire_cask dropbox
 require_cask lingon-x
-require_cask logmein-hamachi
+#require_cask logmein-hamachi
+
+# communication
+require_cask atom
+require_cask dropbox
 require_cask 1password
-#require_cask spotify
-
-#require_cask evernote
-
 require_cask google-drive
-require_cask tower
-
-#require_cask adium
 require_cask slack
 
 # tools
 require_cask diffmerge
 require_cask gpgtools
-require_cask ireadfast
 require_cask iterm2
 require_cask osxfuse
-
-
-#require_cask macvim
 require_cask sizeup
 require_cask flux
-require_cask sketchup
+require_cask tower
 require_cask sublime-text
 require_cask the-unarchiver
 require_cask transmission
 require_cask vlc
-#require_cask xquartz
 require_cask caffeine
-require_cask cycling74-max
-#require_cask webstorm
-require_cask teamviewer
-require_cask skype
 require_cask transmit
-require_cask istat-menus
-
+#require_cask istat-menus
 require_cask daisydisk
 #require_cask dash
 
-# development browsers
+#development browsers
 #require_cask breach
 require_cask firefox
 #require_cask firefox-aurora
@@ -204,12 +189,8 @@ require_cask processing
 #require_cask sequel-pro
 
 # virtual machines
-#require_cask virtualbox
-#require_cask parallels-desktop
-# chef-dk, berkshelf, etc
-#require_cask chefdk
-# vagrant for running dev environments using docker images
-require_cask vagrant # # | grep Caskroom | sed "s/.*'\(.*\)'.*/open \1\/Vagrant.pkg/g" | sh
+require_cask virtualbox
+require_cask vagrant
 
 bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
@@ -219,7 +200,6 @@ bot "All clean"
 ###############################################################################
 bot "Configuring General System UI/UX..."
 ###############################################################################
-
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -254,6 +234,14 @@ sudo pmset -a sms 0;ok
 # e.g. defaults write com.microsoft.word NSQuitAlwaysKeepsWindows -bool true
 
 
+# running "Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)""
+# # Commented out, as this is known to cause problems in various Adobe apps :(
+# # See https://github.com/mathiasbynens/dotfiles/issues/237
+# echo "0x08000100:0" > ~/.CFUserTextEncoding;ok
+
+running "Stop iTunes from responding to the keyboard media keys"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null;ok
+
 # running "Show icons for hard drives, servers, and removable media on the desktop"
 # defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 # defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
@@ -274,6 +262,11 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;ok
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
 #running "Add a spacer to the right side of the Dock (where the Trash is)"
 #defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
+
+# # This is only really useful when setting up a new Mac, or if you don’t use
+# # the Dock to launch apps.
+defaults write com.apple.dock persistent-apps -array "";ok
+>>>>>>> f9ae93bf9c8d1e0e183ef2b383bb92310c7db047
 
 #running "Set a custom wallpaper image"
 # `DefaultDesktop.jpg` is already a symlink, and
@@ -381,7 +374,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
 
 running "Disable smart dashes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;ok
-
 
 ###############################################################################
 bot "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
@@ -522,7 +514,6 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true;ok
 running "Show the ~/Library folder"
 chflags nohidden ~/Library;ok
 
-
 running "Expand the following File Info panes: “General”, “Open with”, and “Sharing & Permissions”"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
@@ -590,30 +581,6 @@ find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -dele
 running "Add iOS Simulator to Launchpad"
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app" "/Applications/iOS Simulator.app";ok
 
-
-bot "Configuring Hot Corners"
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-
-#running "Top left screen corner → Mission Control"
-#defaults write com.apple.dock wvous-tl-corner -int 2
-#defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-#running "Top right screen corner → Desktop"
-#defaults write com.apple.dock wvous-tr-corner -int 4
-#defaults write com.apple.dock wvous-tr-modifier -int 0;ok
-#running "Bottom right screen corner → Start screen saver"
-#defaults write com.apple.dock wvous-br-corner -int 5
-#defaults write com.apple.dock wvous-br-modifier -int 0;ok
-
 ###############################################################################
 bot "Configuring Safari & WebKit"
 ###############################################################################
@@ -653,30 +620,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 running "Add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true;ok
 
-###############################################################################
-bot "Configuring Mail"
-###############################################################################
-
-running "Disable send and reply animations in Mail.app"
-defaults write com.apple.mail DisableReplyAnimations -bool true
-defaults write com.apple.mail DisableSendAnimations -bool true;ok
-
-running "Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false;ok
-
-running "Add the keyboard shortcut ⌘ + Enter to send an email in Mail.app"
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\U21a9";ok
-
-running "Display emails in threaded mode, sorted by date (oldest at the top)"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-#defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
-
-running "Disable inline attachments (just show the icons)"
-defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
-
-running "Disable automatic spell checking"
-#defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 ###############################################################################
 bot "Spotlight"
@@ -846,7 +789,6 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 ###############################################################################
 bot "Sublime Text"
 ###############################################################################
-
 running "Install Sublime Text settings"
 cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null;ok
 
@@ -880,7 +822,6 @@ require_npm keybase
 bot "Ruby Gems..."
 ###############################################################################
 require_gem git-up
-
 
 ###############################################################################
 # Kill affected applications                                                  #
