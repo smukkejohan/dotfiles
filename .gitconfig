@@ -169,7 +169,7 @@
     templatedir = ~/.dotfiles/.git_template
 [mergetool]
 	prompt = false
-	keepBackup = false
+	keepBackup = true
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffmerge"]

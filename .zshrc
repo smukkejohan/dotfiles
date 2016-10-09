@@ -22,7 +22,7 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent cloudapp colorize)
+plugins=(git brew github osx rvm compleat dirpersist gem git-flow ssh-agent cloudapp colorize )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -32,7 +32,7 @@ source ~/.nvm/nvm.sh
 unsetopt correct
 
 export PATH="/Users/johan/.rbenv/shims:${PATH}"
-source "/usr/local/Cellar/rbenv/0.4.0/libexec/../completions/rbenv.zsh"
+source "/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
 rbenv() {
   typeset command
@@ -48,6 +48,3 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
-
-# run fortune on new terminal :)
-fortune

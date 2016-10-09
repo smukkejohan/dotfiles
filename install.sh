@@ -148,7 +148,6 @@ symlinkifne .virtualenvs/postdeactivate
 #unset doIt
 #source ~/.profile
 
-
 popd > /dev/null 2>&1
 
 ./osx.sh

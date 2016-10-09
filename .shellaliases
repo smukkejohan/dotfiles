@@ -22,11 +22,15 @@ alias to.dropbox='cd ~/Dropbox'
 alias to.docs='cd ${MYDOCUMENTS}'
 alias to.code='cd ${MYCODE}'
 alias to.scratch='cd ${MYSCRATCH}'
-
+alias to.notes='cd ~/Dropbox/__notes'
+alias to.of='cd ~/dev/oF'
+alias to.arduino='cd ~/dev/Arduino'
 alias to.devapps='cd ${MYDEVAPPS}'
 
 alias to.desktop="cd ~/Desktop"
 alias to.projects="cd ~/Projects"
+
+alias note="subl note-$(date +%Y-%m-%d).md"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -52,6 +56,9 @@ alias oo="open ."
 alias aq=aquamacs
 
 alias tw="gittower ."
+
+# todo: command to quit all apps like dropbox drive, backup, skype etc
+# sort of presentation mode
 
 #############################
 # Utilities

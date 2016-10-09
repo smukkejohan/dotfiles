@@ -20,7 +20,7 @@ running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
 	action "installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     if [[ $? != 0 ]]; then
     	error "unable to install homebrew, script $0 abort!"
     	exit -1
@@ -66,10 +66,11 @@ require_brew moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 require_brew findutils
 
+
 # Install Bash 4
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
-#install bash
-#install bash-completion
+install bash
+install bash-completion
 
 # Install RingoJS and Narwhal
 # Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
@@ -78,10 +79,6 @@ require_brew findutils
 
 # Install other useful binaries
 require_brew ack
-# Beanstalk http://kr.github.io/beanstalkd/
-#require_brew beanstalkd
-# ln -sfv /usr/local/opt/beanstalk/*.plist ~/Library/LaunchAgents
-# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.beanstalk.plist
 
 # docker setup:
 require_brew fig
@@ -90,14 +87,8 @@ require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
-# fortune command--I source this as a better motd :)
-require_brew fortune
 require_brew gawk
-# http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
-require_brew gifsicle
-# skip those GUI clients, git command-line all the way
 require_brew git
-# yes, yes, use git-flow, please :)
 require_brew git-flow
 # why is everyone still not using GPG?
 # using macgpg2 #require_brew gnupg
@@ -108,11 +99,10 @@ require_brew gnu-sed --default-names
 require_brew homebrew/dupes/grep
 require_brew hub
 require_brew imagemagick
-require_brew imagesnap
+# require_brew imagesnap
 # jq is a JSON grep
 require_brew jq
-# http://maven.apache.org/
-require_brew maven
+#require_brew mongodb
 require_brew memcached
 require_brew nmap
 require_brew node
@@ -128,7 +118,6 @@ require_brew watch
 # Install wget with IRI support
 require_brew wget --enable-iri
 
-#require_brew lua52
 require_brew ngrep
 require_brew boost
 require_brew cgal
@@ -158,15 +147,14 @@ brew tap caskroom/versions > /dev/null 2>&1
 # cloud storage
 #require_cask amazon-cloud-drive
 #require_cask box-sync
-# communicatio
-require_cask dropbox
+
+nrequire_cask dropbox
 require_cask lingon-x
 require_cask logmein-hamachi
 require_cask 1password
-require_cask spotify
+#require_cask spotify
 
 #require_cask evernote
-#require_cask skydrive
 
 require_cask google-drive
 require_cask tower
@@ -175,24 +163,22 @@ require_cask tower
 require_cask slack
 
 # tools
-#require_cask comicbooklover
 require_cask diffmerge
-#require_cask flash-player
-#require_cask github
 require_cask gpgtools
 require_cask ireadfast
 require_cask iterm2
-#require_cask lastpass
+require_cask osxfuse
+
+
 #require_cask macvim
 require_cask sizeup
 require_cask flux
-#require_cask simple-comic
 require_cask sketchup
 require_cask sublime-text
 require_cask the-unarchiver
 require_cask transmission
 require_cask vlc
-require_cask xquartz
+#require_cask xquartz
 require_cask caffeine
 require_cask cycling74-max
 #require_cask webstorm
@@ -202,7 +188,7 @@ require_cask transmit
 require_cask istat-menus
 
 require_cask daisydisk
-require_cask dash
+#require_cask dash
 
 # development browsers
 #require_cask breach
@@ -239,9 +225,6 @@ bot "Configuring General System UI/UX..."
 # SSD-specific tweaks                                                         #
 ###############################################################################
 
-running "Disable local Time Machine snapshots"
-sudo tmutil disablelocal;ok
-
 running "Disable hibernation (speeds up entering sleep mode)"
 sudo pmset -a hibernatemode 0;ok
 
@@ -270,13 +253,6 @@ sudo pmset -a sms 0;ok
 # TODO: might want to enable this again and set specific apps that this works great for
 # e.g. defaults write com.microsoft.word NSQuitAlwaysKeepsWindows -bool true
 
-# running "Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)""
-# # Commented out, as this is known to cause problems in various Adobe apps :(
-# # See https://github.com/mathiasbynens/dotfiles/issues/237
-# echo "0x08000100:0" > ~/.CFUserTextEncoding;ok
-
-# running "Stop iTunes from responding to the keyboard media keys"
-# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null;ok
 
 # running "Show icons for hard drives, servers, and removable media on the desktop"
 # defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -284,20 +260,15 @@ sudo pmset -a sms 0;ok
 # defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;ok
 
-# running "Remove Dropbox’s green checkmark icons in Finder"
-# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-# [ -e "${file}" ] && mv -f "${file}" "${file}.bak";ok
 
-# running "Wipe all (default) app icons from the Dock"
-# # This is only really useful when setting up a new Mac, or if you don’t use
-# # the Dock to launch apps.
-# defaults write com.apple.dock persistent-apps -array "";ok
+running "Wipe all (default) app icons from the Dock"
+defaults write com.apple.dock persistent-apps -array "";ok
 
-#running "Enable the 2D Dock"
-#defaults write com.apple.dock no-glass -bool true;ok
+running "Enable the 2D Dock"
+defaults write com.apple.dock no-glass -bool true;ok
 
-#running "Disable the Launchpad gesture (pinch with thumb and three fingers)"
-#defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;ok
+running "Disable the Launchpad gesture (pinch with thumb and three fingers)"
+defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;ok
 
 #running "Add a spacer to the left side of the Dock (where the applications are)"
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';ok
@@ -350,8 +321,8 @@ defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.5
 running "Set sidebar icon size to medium"
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2;ok
 
-running "Always show scrollbars"
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always";ok
+#running "Always show scrollbars"
+#defaults write NSGlobalDomain AppleShowScrollBars -string "Always";ok
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 running "Increase window resize speed for Cocoa applications"
@@ -402,8 +373,8 @@ sudo systemsetup -setcomputersleep Off > /dev/null;ok
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
 
-#running "Disable Notification Center and remove the menu bar icon"
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
+running "Disable Notification Center and remove the menu bar icon"
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
 
 running "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
@@ -426,9 +397,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCorner
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
-
-#running "Disable “natural” (Lion-style) scrolling"
-#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
 running "Increase sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
@@ -714,8 +682,8 @@ running "Disable automatic spell checking"
 bot "Spotlight"
 ###############################################################################
 
-#running "Hide Spotlight tray-icon (and subsequent helper)"
-#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
+running "Hide Spotlight tray-icon (and subsequent helper)"
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search;ok
 
 running "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -907,6 +875,7 @@ require_npm vtop
 require_npm yo
 
 require_npm keybase
+
 ###############################################################################
 bot "Ruby Gems..."
 ###############################################################################
