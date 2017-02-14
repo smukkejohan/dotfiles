@@ -7,6 +7,9 @@ alias tango="ssh johan@tango.johan.cc"
 alias home="ssh johan@home.johan.cc"
 alias jive="ssh johan@jive.local"
 alias swing="ssh johan@swing.local"
+alias lobster="ssh johan@lobster.local"
+
+
 
 #########################################
 # Commands to run apps
@@ -103,8 +106,6 @@ alias files.usage.user='sudo fs_usage -e -f filesystem|grep -v CACHE_HIT|grep -v
 alias ls='ls -G -h -p '
 alias ll='ls -l -G -h -p '
 
-alias dev2did='git co dev2did;grunt -f; git cam "new mobile build"; git push; git rev-parse HEAD;cd ../DisneyID_UI_Chef;git pull;cd ../DisneyID_UI;sed -i '"'"''"'"' '"'"'s/"UI_Release": "[a-z0-9]*"/"UI_Release": "'"'"'$(git rev-parse HEAD)'"'"'"/'"'"' ../DisneyID_UI_Chef/environments/did-qa/UI-Dev-Mobile.json;cd ../DisneyID_UI_Chef;git add .;git commit -m "update dev2did machine with new deployment commit";git push;cd /var/www/projects/did/DisneyID_UI'
-
 #Git Tools
 # assumes git-up is installed (gem install git-up)
 # switches to 'develop' branch, updates all local branches (nicely using git-up), removes all local branches already merged into 'develop'
@@ -118,7 +119,6 @@ alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
 # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
 alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
@@ -128,7 +128,6 @@ alias spoton="sudo mdutil -a -i on"
 # (useful when executing time-consuming commands)
 alias badge="tput bel"
 
-
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -137,14 +136,11 @@ alias map="xargs -n1"
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 
-
 alias enableremotedesktop="sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -clientopts -setvnclegacy -vnclegacy yes -clientopts -setvncpw -vncpw mypasswd -restart -agent -privs -all"
 alias disableremotedesktop="sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate -configure -access -off"
 
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
 
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
@@ -197,12 +193,3 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-
-
-
-
-
-
-
-
