@@ -5,12 +5,12 @@ export EDITOR='subl -w'
 #########################################################################
 # Temporary aliases useful for demos, other current projects
 #########################################################################
-export MYTEMP=~/Documents/Temp
-export MYCODE=~/dev
-export MYSCRATCH=~/Documents/Temp/Scratch
-export MYDOWNLOADS=~/Downloads
-export MYDOCUMENTS=~/Documents
-export MYDEVAPPS=/Applications/Dev
+export TEMP=~/Documents/Temp
+export CODE=~/dev
+export SCRATCH=~/Documents/Temp/Scratch
+export DOWNLOADS=~/Downloads
+export DOCUMENTS=~/Documents
+export DEVAPPS=/Applications/Dev
 
 #########################################################################
 # Tool paths
