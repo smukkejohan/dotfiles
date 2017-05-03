@@ -9,8 +9,6 @@ alias jive="ssh johan@jive.local"
 alias swing="ssh johan@swing.local"
 alias lobster="ssh johan@lobster.local"
 
-
-
 #########################################
 # Commands to run apps
 alias run.clojure.repl='java -cp ${CLOJURE_HOME}/clojure.jar clojure.lang.Repl'
