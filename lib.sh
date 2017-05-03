@@ -46,8 +46,8 @@ function require_cask() {
         action "brew cask install $1 $2"
         brew cask install $1
         if [[ $? != 0 ]]; then
-            error "failed to install $1! aborting..."
-            exit -1
+            error "failed to install $1!"
+            #exit -1
         fi
     fi
     ok
@@ -60,8 +60,8 @@ function require_brew() {
         action "brew install $1 $2"
         brew install $1 $2
         if [[ $? != 0 ]]; then
-            error "failed to install $1! aborting..."
-            exit -1
+            error "failed to install $1!"
+            #exit -1
         fi
     fi
     ok
@@ -74,8 +74,8 @@ function require_pip() {
         action "pip install $1 $2"
         pip install $1 $2
         if [[ $? != 0 ]]; then
-            error "failed to install $1! aborting..."
-            exit -1
+            error "failed to install $1!"
+            #exit -1
         fi
     fi
     ok
