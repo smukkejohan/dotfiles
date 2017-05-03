@@ -128,7 +128,6 @@ symlinkifne .zlogout
 symlinkifne .zprofile
 symlinkifne .zshenv
 symlinkifne .zshrc
-
 symlinkifne .virtualenvs/postactivate
 symlinkifne .virtualenvs/postdeactivate
 
