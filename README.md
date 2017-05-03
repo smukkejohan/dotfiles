@@ -39,7 +39,6 @@ cd ~/.dotfiles;
 > Note: running install.sh is idempotent. You can run it again and again as you add new features or software to the scripts! I'll regularly add new configurations so keep an eye on this repo as it grows and optimizes.
 
 # Restoring Dotfiles
-
 If you have existing dotfiles for configuring git, zsh, vim, etc, these will be backed-up into ~/.dotfiles_backup and replaced with the files from this project. You can restore your original dotfiles by using `./restore.sh`
 
 # ¯\\_(ツ)_/¯ Warning / Liability
@@ -47,7 +46,6 @@ If you have existing dotfiles for configuring git, zsh, vim, etc, these will be 
 The creator of this repo is not responsible if your machine ends up in a state you are not happy with. If you are concerned, look at install.sh and osx.sh to review everything this script will do to your machine :)
 
 # Additional
-
 There are a few additional features in this repo:
 
 - .crontab: you can `cron ~/.crontab` if you want to add my nightly cron software updates.
@@ -253,4 +251,3 @@ Please refer to the [Contributor Covenant](https://github.com/atomantic/dotfiles
  * Added dotfiles backup and restore.sh script
      * you can now restore your previous dotfiles with ./restore.sh
  * prompting the user more (e.g. `brew upgrade` is now optional)
-
