@@ -146,7 +146,7 @@ brew tap caskroom/versions > /dev/null 2>&1
 #require_cask amazon-cloud-drive
 #require_cask box-sync
 
-nrequire_cask dropbox
+require_cask dropbox
 require_cask lingon-x
 #require_cask logmein-hamachi
 
@@ -266,7 +266,6 @@ defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;ok
 # # This is only really useful when setting up a new Mac, or if you don’t use
 # # the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array "";ok
->>>>>>> f9ae93bf9c8d1e0e183ef2b383bb92310c7db047
 
 #running "Set a custom wallpaper image"
 # `DefaultDesktop.jpg` is already a symlink, and
