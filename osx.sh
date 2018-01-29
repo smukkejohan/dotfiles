@@ -82,12 +82,12 @@ require_brew ack
 
 # docker setup:
 require_brew fig
-require_brew docker
-require_brew boot2docker
+# require_brew docker
+# require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
-require_brew gawk
+# require_brew gawk
 require_brew git
 require_brew git-flow
 # why is everyone still not using GPG?
@@ -147,19 +147,19 @@ brew tap caskroom/versions > /dev/null 2>&1
 #require_cask box-sync
 
 require_cask dropbox
-require_cask lingon-x
+#require_cask lingon-x
 #require_cask logmein-hamachi
 
 # communication
-require_cask atom
+# require_cask atom
 require_cask dropbox
 require_cask 1password
-require_cask google-drive
-require_cask slack
+# require_cask google-drive
+# require_cask slack
 
 # tools
 require_cask diffmerge
-require_cask gpgtools
+# require_cask gpgtools
 require_cask iterm2
 require_cask osxfuse
 require_cask sizeup
@@ -177,10 +177,10 @@ require_cask daisydisk
 
 #development browsers
 #require_cask breach
-require_cask firefox
+#require_cask firefox
 #require_cask firefox-aurora
 require_cask google-chrome
-require_cask google-chrome-canary
+#require_cask google-chrome-canary
 require_cask torbrowser
 
 #require_cask fritzing
@@ -405,7 +405,8 @@ running "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
 running "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -float 0.000000000001
+defaults write NSGlobalDomain KeyRepeat -float 0.000000000001;ok
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
