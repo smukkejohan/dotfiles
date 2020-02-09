@@ -95,7 +95,7 @@ require_brew git-flow
 # so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
 require_brew gnu-sed --default-names
 # better, more recent grep
-require_brew homebrew/dupes/grep
+require_brew grep
 require_brew hub
 require_brew imagemagick
 # require_brew imagesnap
@@ -107,7 +107,7 @@ require_brew nmap
 require_brew node
 require_brew redis
 # better/more recent version of screen
-require_brew homebrew/dupes/screen
+require_brew screen
 require_brew tig
 require_brew tree
 require_brew ttyrec
@@ -141,22 +141,14 @@ echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 bot "installing GUI tools via homebrew casks..."
 brew tap caskroom/versions > /dev/null 2>&1
 
-# cloud storage
-#require_cask amazon-cloud-drive
-#require_cask box-sync
-
 require_cask dropbox
 #require_cask lingon-x
 #require_cask logmein-hamachi
-
-# communication
 require_cask visual-studio-code
 require_cask dropbox
 require_cask 1password
 require_cask google-backup-and-sync
 require_cask slack
-
-# tools
 require_cask diffmerge
 # require_cask gpgtools
 require_cask iterm2
@@ -231,7 +223,6 @@ sudo pmset -a sms 0;ok
 # TODO: might want to enable this again and set specific apps that this works great for
 # e.g. defaults write com.microsoft.word NSQuitAlwaysKeepsWindows -bool true
 
-
 # running "Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)""
 # # Commented out, as this is known to cause problems in various Adobe apps :(
 # # See https://github.com/mathiasbynens/dotfiles/issues/237
@@ -245,7 +236,6 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 # defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 # defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;ok
-
 
 running "Wipe all (default) app icons from the Dock"
 defaults write com.apple.dock persistent-apps -array "";ok
