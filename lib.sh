@@ -102,6 +102,18 @@ function require_npm() {
     ok
 }
 
+yarnlist=`yarn list -g`
+function require_yarn() {
+    running "yarn $1"
+    echo $yarnlist | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+        action "yarn global add $1"
+        npm install -g $1
+    fi
+    ok
+}
+
+
 
 function require_vagrant_plugin() {
     running "vagrant plugin $1"
