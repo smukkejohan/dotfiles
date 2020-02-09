@@ -1,12 +1,9 @@
-#######
-# OSX #
-#######
+#########
+# MacOS #
+#########
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Icon must end with two \r
-Icon
 
 # Thumbnails
 ._*
@@ -57,7 +54,6 @@ release.properties
 # Node #
 ########
 # Logs
-logs
 *.log
 
 # Runtime data
@@ -83,10 +79,3 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
-
-####################
-# Project Specific #
-####################
-.vim/backup/*
-.vim/temp/*
-.vim/.netrwhist
