@@ -130,6 +130,7 @@ symlinkifne .zshenv
 symlinkifne .zshrc
 symlinkifne .virtualenvs/postactivate
 symlinkifne .virtualenvs/postdeactivate
+symlinkifne .hushlogin
 
 #cd "$(dirname "${BASH_SOURCE}")"
 #function doIt() {
