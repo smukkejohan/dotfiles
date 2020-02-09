@@ -81,13 +81,12 @@ install bash-completion
 require_brew ack
 
 # docker setup:
-require_brew fig
+# require_brew fig
 # require_brew docker
 # require_brew boot2docker
 
 # dos2unix converts windows newlines to unix newlines
 require_brew dos2unix
-# require_brew gawk
 require_brew git
 require_brew git-flow
 # why is everyone still not using GPG?
@@ -187,6 +186,9 @@ require_cask torbrowser
 require_cask arduino
 require_cask processing
 #require_cask sequel-pro
+require_cask sqlpro-studio
+require_cask vnc-viewer
+
 
 # virtual machines
 require_cask virtualbox
@@ -405,8 +407,8 @@ running "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
 running "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -float 0.000000000001;ok
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15;ok
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -796,27 +798,17 @@ cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublim
 bot "NPM Globals..."
 ###############################################################################
 
-#require_npm antic
-require_npm bower
-# http://ionicframework.com/
-#require_npm cordova
-require_npm ionic
-# https://github.com/markdalgleish/bespoke.js
-require_npm generator-bespoke
-require_npm grunt
-require_npm gulp
-require_npm jshint
-# http://devo.ps/blog/goodbye-node-forever-hello-pm2/
-require_npm pm2
-require_npm prettyjson
-require_npm supervisor
+require_yarn webpack-cli
+require_yarn grunt
+require_yarn gulp
+require_yarn jshint
+require_yarn prettyjson
+require_yarn supervisor
 # https://github.com/sindresorhus/trash
-require_npm trash
+require_yarn trash
 # https://github.com/MrRio/vtop
-require_npm vtop
-require_npm yo
-
-require_npm keybase
+require_yarn vtop
+require_yarn yo
 
 ###############################################################################
 bot "Ruby Gems..."
