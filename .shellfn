@@ -41,3 +41,33 @@ function schef()
 function fixperms(){
     find . \( -name "*.sh" -or -type d \) -exec chmod 755 {} \; && find . -type f ! -name "*.sh" -exec chmod 644 {} \;
 }
+
+
+#function mount(){
+
+# bash can replace the %20 with a space...
+# $1 airlook1
+
+#MOUNT_POINT="/Volumes/$1"
+
+#}
+
+
+#USERNAME="AIRLOOK-M78161"
+#PASSWD="AIos78161"
+#SERVER="airlook"
+#SHARE_NAME="airlook$"
+#GREP_MOUNT="/Volumes/airlook"
+
+# bash can replace the %20 with a space...
+#MOUNT_POINT="/Volumes/${SHARE_NAME//\%20/\ }"
+
+#if [ ! -d  "${MOUNT_POINT}" ]; then
+#  mkdir "${MOUNT_POINT}"
+#fi
+
+#if mount | grep "on ${GREP_MOUNT}" > /dev/null; then
+#  echo "already mounted"
+#else
+#  mount -t smbfs "//${USERNAME}:${PASSWD}@${SERVER}/${SHARE_NAME}" "${MOUNT_POINT}"
+#fi
