@@ -1,5 +1,7 @@
-# Set Sublime Text as our default command line editor (vi is the default otherwise)
-export EDITOR='subl -w'
+#!/bin/sh
+
+# Set Visual Studio Code as our default command line editor (vi is the default otherwise)
+export EDITOR='code -w'
 
 
 #########################################################################
@@ -7,10 +9,9 @@ export EDITOR='subl -w'
 #########################################################################
 export TEMP=~/Documents/Temp
 export CODE=~/dev
-export SCRATCH=~/Documents/Temp/Scratch
 export DOWNLOADS=~/Downloads
 export DOCUMENTS=~/Documents
-export DEVAPPS=/Applications/Dev
+export DEVAPPS=/Applications/dev
 
 #########################################################################
 # Tool paths

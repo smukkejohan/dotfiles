@@ -150,11 +150,11 @@ require_cask dropbox
 #require_cask logmein-hamachi
 
 # communication
-# require_cask atom
+require_cask visual-studio-code
 require_cask dropbox
 require_cask 1password
-# require_cask google-drive
-# require_cask slack
+require_cask google-backup-and-sync
+require_cask slack
 
 # tools
 require_cask diffmerge
@@ -162,15 +162,13 @@ require_cask diffmerge
 require_cask iterm2
 require_cask osxfuse
 require_cask sizeup
-require_cask flux
 require_cask tower
-require_cask sublime-text
 require_cask the-unarchiver
 require_cask transmission
 require_cask vlc
 require_cask caffeine
 require_cask transmit
-#require_cask istat-menus
+require_cask istat-menus
 require_cask daisydisk
 #require_cask dash
 
@@ -189,10 +187,8 @@ require_cask processing
 require_cask sqlpro-studio
 require_cask vnc-viewer
 
-
 # virtual machines
 require_cask virtualbox
-require_cask vagrant
 
 bot "Alright, cleaning up homebrew cache..."
 # Remove outdated versions from the cellar
@@ -789,31 +785,18 @@ running "Don’t show the preferences window on next start"
 defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
 ###############################################################################
-bot "Sublime Text"
-###############################################################################
-running "Install Sublime Text settings"
-cp -r configs/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null;ok
-
-###############################################################################
 bot "NPM Globals..."
 ###############################################################################
 
-require_yarn webpack-cli
-require_yarn grunt
-require_yarn gulp
-require_yarn jshint
-require_yarn prettyjson
-require_yarn supervisor
+#require_yarn webpack-cli
+#require_yarn jshint
+#require_yarn prettyjson
+#require_yarn supervisor
 # https://github.com/sindresorhus/trash
-require_yarn trash
+#require_yarn trash
 # https://github.com/MrRio/vtop
-require_yarn vtop
-require_yarn yo
+#require_yarn vtop
 
-###############################################################################
-bot "Ruby Gems..."
-###############################################################################
-require_gem git-up
 
 ###############################################################################
 # Kill affected applications                                                  #
