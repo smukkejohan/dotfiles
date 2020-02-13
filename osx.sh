@@ -81,50 +81,7 @@ install bash-completion
 require_brew ack
 
 # docker setup:
-# require_brew fig
-# require_brew docker
-# require_brew boot2docker
 
-# dos2unix converts windows newlines to unix newlines
-require_brew dos2unix
-require_brew git
-require_brew git-flow
-# why is everyone still not using GPG?
-# using macgpg2 #require_brew gnupg
-# Install GNU `sed`, overwriting the built-in `sed`
-# so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-require_brew gnu-sed --default-names
-# better, more recent grep
-require_brew grep
-require_brew hub
-require_brew imagemagick
-# require_brew imagesnap
-# jq is a JSON grep
-require_brew jq
-#require_brew mongodb
-require_brew memcached
-require_brew nmap
-require_brew node
-require_brew redis
-# better/more recent version of screen
-require_brew screen
-require_brew tig
-require_brew tree
-require_brew ttyrec
-# better, more recent vim
-require_brew vim --override-system-vi
-require_brew watch
-# Install wget with IRI support
-require_brew wget --enable-iri
-
-require_brew ngrep
-require_brew boost
-require_brew cgal
-require_brew cppunit
-require_brew cmake
-
-# Python
-require_brew python
 
 bot "Installing python libs via pip..."
 require_pip virtualenvwrapper
@@ -135,57 +92,6 @@ echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
 bot "if you would like to start memcached now, run this:"
 echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
 
-###############################################################################
-# Native Apps (via brew cask)                                                 #
-###############################################################################
-bot "installing GUI tools via homebrew casks..."
-brew tap caskroom/versions > /dev/null 2>&1
-
-require_cask dropbox
-#require_cask lingon-x
-#require_cask logmein-hamachi
-require_cask visual-studio-code
-require_cask dropbox
-require_cask 1password
-require_cask google-backup-and-sync
-require_cask slack
-require_cask diffmerge
-# require_cask gpgtools
-require_cask iterm2
-require_cask osxfuse
-require_cask sizeup
-require_cask tower
-require_cask the-unarchiver
-require_cask transmission
-require_cask vlc
-require_cask caffeine
-require_cask transmit
-require_cask istat-menus
-require_cask daisydisk
-#require_cask dash
-
-#development browsers
-#require_cask breach
-#require_cask firefox
-#require_cask firefox-aurora
-require_cask google-chrome
-#require_cask google-chrome-canary
-require_cask torbrowser
-
-#require_cask fritzing
-require_cask arduino
-require_cask processing
-#require_cask sequel-pro
-require_cask sqlpro-studio
-require_cask vnc-viewer
-
-# virtual machines
-require_cask virtualbox
-
-bot "Alright, cleaning up homebrew cache..."
-# Remove outdated versions from the cellar
-brew cleanup > /dev/null 2>&1
-bot "All clean"
 
 ###############################################################################
 bot "Configuring General System UI/UX..."

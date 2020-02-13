@@ -1,38 +1,16 @@
-#!/bin/sh
-
 #My Scripts
 export PATH=$PATH:.
-export PATH=$PATH:~/bin
+#export PATH=$PATH:~/.dotfiles/scripts
 
 #Brew
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-#Dev frameworks
-#export PATH=$PATH:$ANT_HOME/bin
-export PATH=$PATH:$M2_HOME/bin
+# GO
+#export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-#Chef
-export PATH=$PATH:/opt/chef/bin:/opt/chef/embedded/bin
+# The next line updates PATH for the Google Cloud SDK.
+#source "/Users/$(whoami)/Downloads/google-cloud-sdk/path.zsh.inc"
 
-#Zend
-export PATH=$PATH:/usr/local/zend/bin
-export PATH=$PATH:/usr/local/zend/mysql/bin
-
-# NPM
-export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:~/.nvm/v0.10.22/bin
-
-# Python
-PATH=${PATH}:/usr/local/bin/python
-
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
+# The next line enables shell command completion for gcloud.
+#source "/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc"
