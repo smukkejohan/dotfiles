@@ -684,16 +684,6 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 bot "NPM Globals..."
 ###############################################################################
 
-#require_yarn webpack-cli
-#require_yarn jshint
-#require_yarn prettyjson
-#require_yarn supervisor
-# https://github.com/sindresorhus/trash
-#require_yarn trash
-# https://github.com/MrRio/vtop
-#require_yarn vtop
-
-
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
