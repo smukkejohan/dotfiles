@@ -58,7 +58,6 @@ module.exports = {
   cask: [
     'dropbox',
     'lingon-x',
-    //logmein-hamachi,
     'visual-studio-code',
     '1password',
     'google-backup-and-sync',
@@ -74,25 +73,21 @@ module.exports = {
     'transmit',
     'istat-menus',
     'daisydisk',
-    //'dash',
-    //development browsers
-    'breach',
+    'dash',
     'firefox',
-    'firefox-aurora',
     'google-chrome',
     'google-chrome-canary',
     'torbrowser',
     // 'fritzing'
     // 'arduino'
     // 'processing'
-    //'sequel-pro',
     'sqlpro-studio',
     'vnc-viewer',
     'virtualbox',
     'docker', // docker for mac
     //'flux',
     'gpg-suite',
-    //'little-snitch',
+    'little-snitch',
     'macbreakz',
     'micro-snitch',
     'signal',
@@ -100,7 +95,6 @@ module.exports = {
     //'sketchup',
     'slack',
     'the-unarchiver',
-    'xquartz'
   ],
   gem: [
   ],
@@ -115,7 +109,9 @@ module.exports = {
     'vtop'
   ],
   pip: [
-    'flake-8'
+    'flake-8',
+    'virtualenv',
+    'virtualenvwrapper'
   ],
   mas: [
     '409907375', // Remote Desktop (3.9.3)

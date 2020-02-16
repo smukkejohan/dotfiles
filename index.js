@@ -21,7 +21,7 @@ inquirer.prompt([{
   ['brew', 'cask', 'npm', 'yarn', 'gem', 'pip', 'mas'].forEach( type => {
     if(config[type] && config[type].length){
       tasks.push((cb)=>{
-        console.info(emoji.get('coffee'), ' installing '+type+' packages')
+        console.info(' installing '+type+' packages')
         cb()
       })
       config[type].forEach((item)=>{
