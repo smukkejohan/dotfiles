@@ -105,16 +105,17 @@ module.exports = {
   gem: [
   ],
   npm: [
+  ],
+  yarn: [
     'eslint',
     'instant-markdown-d',
-    // 'generator-dockerize',
-    // 'gulp',
     'npm-check-updates',
     'prettyjson',
     'trash',
     'vtop'
-    // ,'yo'
-    
+  ],
+  pip: [
+    'flake-8'
   ],
   mas: [
     '409907375', // Remote Desktop (3.9.3)
