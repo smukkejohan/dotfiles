@@ -56,6 +56,7 @@ module.exports = {
     'wget --enable-iri'
   ],
   cask: [
+    'nordvpn',
     'dropbox',
     'lingon-x',
     'visual-studio-code',
