@@ -18,7 +18,7 @@ inquirer.prompt([{
 
   const tasks = [];
 
-  ['brew', 'cask', 'npm', 'gem', 'mas'].forEach( type => {
+  ['brew', 'cask', 'npm', 'yarn', 'gem', 'pip', 'mas'].forEach( type => {
     if(config[type] && config[type].length){
       tasks.push((cb)=>{
         console.info(emoji.get('coffee'), ' installing '+type+' packages')

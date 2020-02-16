@@ -5,8 +5,6 @@
 # @author Adam Eivy
 ###
 
-# source ./echos.sh
-
 function require_apm() {
     running "checking atom plugin: $1"
     apm list --installed --bare | grep $1@ > /dev/null
@@ -84,6 +82,31 @@ function require_npm() {
     fi
     ok
 }
+
+function require_yarn() {
+    sourceNVM
+    nvm use stable
+    running "yarn add global $*"
+    yarn list -g --depth 0 | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+        action "yarn add global $*"
+        yarn add global $@
+    fi
+    ok
+}
+
+
+function require_pip() {
+    running "pip install $*"
+    python3 list -g --depth 0 | grep $1@ > /dev/null
+    if [[ $? != 0 ]]; then
+        action "python3 -m pip install $*"
+        python3 -m pip install $@
+    fi
+    ok
+}
+
+
 
 function sourceNVM(){
     export NVM_DIR=~/.nvm
