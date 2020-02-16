@@ -255,7 +255,6 @@ if [[ $response =~ (y|yes|Y) ]];then
   ok
 fi
 
-
 # node version manager
 require_brew nvm
 
@@ -279,6 +278,34 @@ ok
 bot "installing packages from config.js..."
 node index.js
 ok
+
+bot "Linking visual studio code settings"
+read -r -p "symlink ./vscode/* files in ~/Library/Application\ Support/Code/User/? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]]; then
+  bot "creating symlinks for vscode settings..."
+  pushd vscode > /dev/null 2>&1
+  now=$(date +"%Y.%m.%d.%H.%M.%S")
+
+  for file in settings.json keybindings.json snippets; do
+    if [[ $file == "." || $file == ".." ]]; then
+      continue
+    fi
+    running "~/Library/Application\ Support/Code/User/$file"
+    # if the file exists:
+    if [[ -e ~/Library/Application\ Support/Code/User/$file ]]; then
+        mkdir -p ~/.dotfiles_backup/vscode/$now
+        mv ~/Library/Application\ Support/Code/User/$file ~/.dotfiles_backup/vscode/$now/$file
+        echo "backup saved as ~/.dotfiles_backup/vscode/$now/$file"
+    fi
+    # symlink might still exist
+    unlink ~/Library/Application\ Support/Code/User/$file > /dev/null 2>&1
+    # create the link
+    ln -s ~/.dotfiles/homedir/$file ~/Library/Application\ Support/Code/User/$file
+    echo -en '\tlinked';ok
+  done
+
+  popd > /dev/null 2>&1
+fi
 
 running "cleanup homebrew"
 brew cleanup --force > /dev/null 2>&1
