@@ -99,6 +99,7 @@ module.exports = {
     'the-unarchiver',
   ],
   gem: [
+    'compass'
   ],
   npm: [
   ],

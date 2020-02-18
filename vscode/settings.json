@@ -1,3 +1,6 @@
 {
-    "terminal.integrated.fontFamily": "\"Droid Sans Mono Awesome\""
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.explorerKind": "external",
+    "terminal.integrated.fontFamily": "\"Droid Sans Mono Awesome\"",
+    "terminal.integrated.experimentalUseTitleEvent": false
 }

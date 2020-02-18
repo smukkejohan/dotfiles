@@ -305,7 +305,7 @@ if [[ $response =~ (y|yes|Y) ]]; then
     # symlink might still exist
     unlink ~/Library/Application\ Support/Code/User/$file > /dev/null 2>&1
     # create the link
-    ln -s ~/.dotfiles/homedir/$file ~/Library/Application\ Support/Code/User/$file
+    ln -s ~/.dotfiles/vscode/$file ~/Library/Application\ Support/Code/User/$file
     echo -en '\tlinked';ok
   done
 

@@ -27,11 +27,11 @@ export CASE_SENSITIVE="true"
 # export DISABLE_LS_COLORS="true"
 
 # disable autosetting terminal title.
-export DISABLE_AUTO_TITLE="true"
+#export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp virtualenvwrapper nvm yarn)
+plugins=(colorize compleat dirpersist autojump git history cp virtualenvwrapper nvm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
