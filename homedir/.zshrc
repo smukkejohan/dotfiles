@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
 POWERLEVEL9K_MODE='awesome-patched'
-#export ZSH_THEME="powerlevel9k/powerlevel9k"
+export ZSH_THEME="powerlevel9k/powerlevel9k"
 #export ZSH_THEME="agnoster"
 export DEFAULT_USER="$USER"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
