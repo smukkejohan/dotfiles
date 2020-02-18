@@ -56,6 +56,7 @@ module.exports = {
     'wget --enable-iri'
   ],
   cask: [
+    'logitech-options', 
     'nordvpn',
     'dropbox',
     'lingon-x',

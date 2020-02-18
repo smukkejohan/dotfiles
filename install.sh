@@ -174,6 +174,9 @@ require_brew git
 # update zsh to latest
 require_brew zsh
 
+# tap drivers
+brew tap homebrew/cask-drivers
+
 # install python
 require_brew python
 
@@ -260,6 +263,8 @@ require_brew nvm
 
 # nvm
 require_nvm stable
+
+require_brew yarn
 
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true

@@ -9,7 +9,7 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv time) # nvm is kind of slow so removed 
 # colorcode test
 # for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 POWERLEVEL9K_NVM_FOREGROUND='000'
@@ -31,7 +31,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp virtualenvwrapper nvm)
+plugins=(colorize compleat dirpersist autojump git gulp history cp virtualenvwrapper nvm yarn)
 
 source $ZSH/oh-my-zsh.sh
 
