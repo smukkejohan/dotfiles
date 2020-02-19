@@ -169,15 +169,11 @@ fi
 mkdir -p ~/Library/Caches/Homebrew/Formula
 brew doctor
 
-# skip those GUI clients, git command-line all the way
 require_brew git
-# update zsh to latest
+require_brew git-lfs
+git-lfs install
 require_brew zsh
-
-# tap drivers
 brew tap homebrew/cask-drivers
-
-# install python
 require_brew python
 
 # update ruby to latest

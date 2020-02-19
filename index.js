@@ -35,7 +35,7 @@ inquirer.prompt([{
       })
     }else{
       tasks.push((cb)=>{
-        console.info(emoji.get('coffee'), type+' has no packages')
+        console.info(type+' has no packages')
         cb()
       })
     }
