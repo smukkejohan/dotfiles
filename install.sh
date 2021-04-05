@@ -261,9 +261,6 @@ require_brew nvm
 require_nvm node
 # require_brew yarn TODO: chaning to pnpm
 
-# always pin versions (no surprises, consistent dev/build machines)
-npm config set save-exact true
-
 #####################################
 # Now we can switch to node.js mode
 # for better maintainability and
