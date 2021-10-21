@@ -17,7 +17,6 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 export NVM_LAZY=1
 export NVM_AUTOLOAD=1
 export NVM_LAZY_CMD=(yarn npm pnpm)
-#export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 #export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/humpback.yaml
