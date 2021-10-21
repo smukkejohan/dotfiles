@@ -2,5 +2,41 @@
     "terminal.external.osxExec": "iTerm.app",
     "terminal.explorerKind": "external",
     "terminal.integrated.fontFamily": "\"Droid Sans Mono Awesome\"",
-    "terminal.integrated.experimentalUseTitleEvent": false
+    "terminal.integrated.experimentalUseTitleEvent": false,
+    "git.autofetch": true,
+    "todo-tree.tree.showScanModeButton": false,
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": "{{put-password-here}}"
+        }
+    ],
+    "editor.wordWrap": "on",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "javascript.suggest.autoImports": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "python.showStartPage": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    }
 }

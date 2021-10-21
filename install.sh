@@ -20,9 +20,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # ###########################################################
-# /etc/hosts -- spyware/ad blocking
+# /etc/hosts
 # ###########################################################
-read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from https://github.com/StevenBlack/hosts (from ./configs/hosts file) [y|N] " response
+read -r -p "Overwrite /etc/hosts with the hosts file from ./configs/hosts file) [y|N] " response
 if [[ $response =~ (yes|y|Y) ]];then
     action "cp /etc/hosts /etc/hosts.backup"
     sudo cp /etc/hosts /etc/hosts.backup
@@ -137,7 +137,7 @@ if ! xcode-select --print-path &> /dev/null; then
 fi
 
 # ###########################################################
-# install homebrew (CLI Packages)
+# install homebrew (CLI Packages) // TODO: without ruby ? 
 # ###########################################################
 running "checking homebrew..."
 brew_bin=$(which brew) 2>&1 > /dev/null

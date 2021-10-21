@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
@@ -31,27 +33,25 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git history cp virtualenvwrapper nvm yarn)
+# diasbled, used previously: virtualenvwrapper nvm
+plugins=(colorize compleat dirpersist autojump git history cp nvm  )
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/nvm/nvm.sh --no-use
+#autoload -U add-zsh-hook
 
-autoload -U add-zsh-hook
+#load-nvmrc() {
+#  if [[ -f .nvmrc && -r .nvmrc ]]; then
+#    nvm use &> /dev/null
+#  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+#    nvm use default &> /dev/null
+#  fi
+#}
 
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
 
-# run fortune on new terminal :)
-# fortune
+zprof

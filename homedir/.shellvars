@@ -3,21 +3,10 @@ export EDITOR="vim"
 bindkey -v
 
 #########################################################################
-# Temporary aliases useful for demos, other current projects
-#########################################################################
-export MYTEMP=~/Documents/Temp
-export MYCODE=~/Documents/Code
-export MYSCRATCH=~/Documents/Temp/Scratch
-export MYDOWNLOADS=~/Downloads
-export MYDOCUMENTS=~/Documents
-export MYDEVAPPS=/Applications/Dev
-
-#########################################################################
 # Tool paths and settings
 #########################################################################
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-
-export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 export NVM_DIR=~/.nvm
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"

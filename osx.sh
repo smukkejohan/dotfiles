@@ -87,12 +87,6 @@ bot "Installing python libs via pip..."
 require_pip virtualenvwrapper
 require_pip ipython
 
-bot "if you would like to start memcached at login, run this:"
-echo "ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents"
-bot "if you would like to start memcached now, run this:"
-echo "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
-
-
 ###############################################################################
 bot "Configuring General System UI/UX..."
 ###############################################################################

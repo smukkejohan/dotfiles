@@ -1,6 +1,7 @@
 module.exports = {
   brew: [
     'ansible',
+    'python3'
     'mongodb',
     'memcached',
     'redis',
