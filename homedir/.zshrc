@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
@@ -33,25 +33,24 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# diasbled, used previously: virtualenvwrapper nvm
-plugins=(colorize compleat dirpersist autojump git history cp nvm  )
+# diasbled, used previously: virtualenvwrapper compleat
+plugins=(colorize dirpersist macos autojump git cp nvm)
 
 source $ZSH/oh-my-zsh.sh
 
-#autoload -U add-zsh-hook
-
-#load-nvmrc() {
-#  if [[ -f .nvmrc && -r .nvmrc ]]; then
-#    nvm use &> /dev/null
-#  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-#    nvm use default &> /dev/null
-#  fi
-#}
-
-#add-zsh-hook chpwd load-nvmrc
-#load-nvmrc
+#autoload -Uz add-zsh-hook
+#autoload -Uz compinit
+#if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+#  compinit
+#else
+#  compinit -C
+#fi
 
 # Customize to your needs...
 unsetopt correct
 
-zprof
+#zprof
+# pnpm
+export PNPM_HOME="/Users/johan/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

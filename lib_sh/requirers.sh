@@ -73,7 +73,7 @@ function require_node(){
 
 function require_npm() {
     sourceNVM
-    nvm use stable
+    nvm use node
     running "npm $*"
     npm list -g --depth 0 | grep $1@ > /dev/null
     if [[ $? != 0 ]]; then
@@ -85,7 +85,7 @@ function require_npm() {
 
 function require_yarn() {
     sourceNVM
-    nvm use stable
+    nvm use node
     running "yarn add global $*"
     yarn list -g --depth 0 | grep $1@ > /dev/null
     if [[ $? != 0 ]]; then
@@ -105,8 +105,6 @@ function require_pip() {
     fi
     ok
 }
-
-
 
 function sourceNVM(){
     export NVM_DIR=~/.nvm

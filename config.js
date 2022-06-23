@@ -1,7 +1,7 @@
 module.exports = {
   brew: [
     'ansible',
-    'python3'
+    'python3',
     'mongodb',
     'memcached',
     'redis',
@@ -88,8 +88,6 @@ module.exports = {
     'vnc-viewer',
     'virtualbox',
     'docker', // docker for mac
-    //'flux',
-    'gpg-suite',
     'little-snitch',
     'macbreakz',
     'micro-snitch',
@@ -103,8 +101,9 @@ module.exports = {
     'compass'
   ],
   npm: [
+    'pnpm',
   ],
-  yarn: [
+  pnpm: [
     'eslint',
     'instant-markdown-d',
     'npm-check-updates',

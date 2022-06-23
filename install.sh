@@ -258,9 +258,8 @@ fi
 require_brew nvm
 
 # nvm
-require_nvm stable
-
-require_brew yarn
+require_nvm node
+# require_brew yarn TODO: chaning to pnpm
 
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
