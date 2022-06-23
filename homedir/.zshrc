@@ -34,17 +34,22 @@ export CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # diasbled, used previously: virtualenvwrapper compleat
-plugins=(colorize dirpersist macos autojump git cp nvm)
+plugins=(colorize dirpersist macos autojump git cp)
 
 source $ZSH/oh-my-zsh.sh
 
-#autoload -Uz add-zsh-hook
-#autoload -Uz compinit
-#if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-#  compinit
-#else
-#  compinit -C
-#fi
+source /usr/local/opt/nvm/nvm.sh --no-use
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use &> /dev/null
+  else
+    nvm use stable
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # Customize to your needs...
 unsetopt correct

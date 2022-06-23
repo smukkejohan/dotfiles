@@ -1,6 +1,6 @@
 {
   "name": "dotfiles",
-  "version": "1.0.0",
+  "version": "5.2.0",
   "description": "dotfiles for osx",
   "main": "index.js",
   "scripts": {
