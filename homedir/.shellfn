@@ -127,7 +127,8 @@ function fo() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+
+
+function gittyup(){
+  git pull --rebase --autostash  && git push
 }
