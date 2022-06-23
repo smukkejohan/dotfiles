@@ -31,9 +31,9 @@ module.exports = {
     'gnupg',
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
-    'gnu-sed --with-default-names',
+    'gnu-sed',
     // upgrade grep so we can get things like inverted match (-v)
-    'grep --with-default-names',
+    'grep',
     // https://github.com/jkbrzt/httpie
     'httpie',
     // jq is a sort of JSON grep
