@@ -61,6 +61,7 @@ module.exports = {
     'nordvpn',
     'dropbox',
     'lingon-x',
+    'mongodb-compass',
     'visual-studio-code',
     '1password',
     'google-backup-and-sync',
@@ -76,7 +77,7 @@ module.exports = {
     'transmit',
     'istat-menus',
     'daisydisk',
-    'dash',
+    //'dash',
     'firefox',
     'google-chrome',
     'google-chrome-canary',
@@ -93,7 +94,7 @@ module.exports = {
     //'the-unarchiver',
   ],
   gem: [
-    'compass'
+    //'compass'
   ],
   npm: [
     'pnpm',

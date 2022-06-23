@@ -34,28 +34,28 @@ export CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # diasbled, used previously: virtualenvwrapper compleat
-plugins=(colorize dirpersist macos autojump git cp)
+plugins=(colorize dirpersist osx autojump git cp nvm)
 
 source $ZSH/oh-my-zsh.sh
 
 source /usr/local/opt/nvm/nvm.sh --no-use
 
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  else
-    nvm use stable
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#  if [[ -f .nvmrc && -r .nvmrc ]]; then
+#    nvm use &> /dev/null
+#  else
+#    nvm use stable
+#  fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
 
 #zprof
 # pnpm
-export PNPM_HOME="/Users/johan/Library/pnpm"
+export PNPM_HOME="/Users/johan/.pnpm-store/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
