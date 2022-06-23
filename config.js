@@ -43,9 +43,9 @@ module.exports = {
     // Install some other useful utilities like `sponge`
     'moreutils',
     'nmap',
-    'openconnect',
     'reattach-to-user-namespace',
-    'screen',
+    // better/more recent version of screen
+    'homebrew/dupes/screen',
     'tmux',
     'todo-txt',
     'tree',
@@ -72,7 +72,7 @@ module.exports = {
     'tower',
     'transmission',
     'vlc',
-    'caffeine',
+    //'caffeine',
     'transmit',
     'istat-menus',
     'daisydisk',
@@ -80,22 +80,17 @@ module.exports = {
     'firefox',
     'google-chrome',
     'google-chrome-canary',
-    'torbrowser',
-    // 'fritzing'
-    // 'arduino'
-    // 'processing'
+    //'torbrowser',
+    'brave',
     'sqlpro-studio',
     'vnc-viewer',
     'virtualbox',
-    'docker', // docker for mac
+    'docker',
     'little-snitch',
-    'macbreakz',
     'micro-snitch',
     'signal',
-    'sizeup',
     //'sketchup',
-    'slack',
-    'the-unarchiver',
+    //'the-unarchiver',
   ],
   gem: [
     'compass'
