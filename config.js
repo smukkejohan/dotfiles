@@ -101,6 +101,7 @@ module.exports = {
   ],
   pnpm: [
     'eslint',
+    'typescript',
     'instant-markdown-d',
     'npm-check-updates',
     'prettyjson',
@@ -108,7 +109,7 @@ module.exports = {
     'vtop'
   ],
   pip: [
-    'flake-8',
+    //'flake-8',
     'virtualenv',
     'virtualenvwrapper'
   ],
