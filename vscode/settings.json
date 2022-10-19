@@ -58,5 +58,7 @@
     },
     "github.copilot.advanced": {
     
-    }
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "svelte.plugin.svelte.note-new-transformation": false
 }
