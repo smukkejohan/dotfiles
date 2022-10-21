@@ -1,10 +1,7 @@
-# Set vim as default editor (vi is the default otherwise)
 export EDITOR="vim"
 bindkey -v
 
-#########################################################################
-# Tool paths and settings
-#########################################################################
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
