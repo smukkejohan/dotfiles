@@ -1,9 +1,4 @@
-#!/usr/bin/env bash
-
-###
-# some colorized echo helpers
-# @author Adam Eivy
-###
+#!/usr/bin/env zsh
 
 # Colors
 ESC_SEQ="\x1b["
@@ -19,8 +14,8 @@ function ok() {
     echo -e "$COL_GREEN[ok]$COL_RESET "$1
 }
 
-function bot() {
-    echo -e "\n$COL_GREEN\[._.]/$COL_RESET - "$1
+function info() {
+    echo -e "\n$COL_GREEN[info]$COL_RESET - "$1
 }
 
 function running() {
@@ -28,7 +23,7 @@ function running() {
 }
 
 function action() {
-    echo -e "\n$COL_YELLOW[action]:$COL_RESET\n ⇒ $1..."
+    echo -e "\n$COL_YELLOW[action]:$COL_RESET ⇒ $1..."
 }
 
 function warn() {
@@ -37,24 +32,4 @@ function warn() {
 
 function error() {
     echo -e "$COL_RED[error]$COL_RESET "$1
-}
-
-function print_error() {
-    printf " [✖] %s\n" "$1"
-}
-
-function print_result() {
-
-    if [ "$1" -eq 0 ]; then
-        print_success "$2"
-    else
-        print_error "$2"
-    fi
-
-    return "$1"
-
-}
-
-function print_success() {
-    printf " [✔] %s\n" "$1"
 }

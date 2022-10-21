@@ -1,15 +1,15 @@
-#zmodload zsh/zprof
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.dotfiles/oh-my-zsh
-# if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
-POWERLEVEL9K_MODE='awesome-patched'
-export ZSH_THEME="powerlevel9k/powerlevel9k"
-#export ZSH_THEME="agnoster"
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 export DEFAULT_USER="$USER"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
-# https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv time) # nvm is kind of slow so removed 
 # colorcode test
@@ -17,27 +17,13 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv time) # nv
 POWERLEVEL9K_NVM_FOREGROUND='000'
 POWERLEVEL9K_NVM_BACKGROUND='072'
 POWERLEVEL9K_SHOW_CHANGESET=true
-#export ZSH_THEME="random"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
 
-# disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# disable autosetting terminal title.
-#export DISABLE_AUTO_TITLE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# diasbled, used previously: virtualenvwrapper compleat
-plugins=(colorize dirpersist osx autojump git cp nvm)
+plugins=(colorize dirpersist autojump git cp asdf zsh-z)
 
 source $ZSH/oh-my-zsh.sh
-
 source /usr/local/opt/nvm/nvm.sh --no-use
 
 # autoload -U add-zsh-hook
@@ -59,3 +45,6 @@ unsetopt correct
 export PNPM_HOME="/Users/johan/.pnpm-store/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
