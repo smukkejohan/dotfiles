@@ -1,7 +1,7 @@
 
 # Running
 ```bash
-git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
+git clone https://github.com/smukkejohan/dotfiles ~/.dotfiles
 cd ~/.dotfiles;
 ./install.sh;
 ```
@@ -18,4 +18,3 @@ If you have existing dotfiles for configuring git, zsh, vim, etc, these will be 
 
 # Additional
 - .crontab: you can `cron ~/.crontab` if you want to add nightly cron software updates.
-> \\[0_0]/ - Note that this may wake you in the morning to compatibility issues so use only if you like being on the edge
