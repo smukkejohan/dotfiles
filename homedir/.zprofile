@@ -2,6 +2,7 @@
 #Import the shell-agnostic (Bash or Zsh) environment config
 ##############################################################################
 source ~/.profile
+source ~/.iterm2_shell_integration.zsh
 
 ##############################################################################
 # History Configuration

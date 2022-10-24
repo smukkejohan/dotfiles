@@ -13,8 +13,7 @@ export DEFAULT_USER="$USER"
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
 
-plugins=(colorize dirpersist autojump git cp asdf zsh-z)
-
+plugins=(colorize dirpersist autojump git cp asdf macos zsh-z)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
@@ -25,6 +24,8 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 
