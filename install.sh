@@ -79,10 +79,6 @@ fi
 
 git-lfs install
 
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin-add pnpm
-
-
 # install oh-my-zsh
 if [[ ! -d "${ZSH}" ]]; then
   rm -r "$ZSH"
@@ -126,6 +122,13 @@ if [[ "$REPLY" =~ ^[Yy] ]]; then
 
   popd > /dev/null 2>&1
 fi
+
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add pnpm
+asdf plugin add ruby
+asdf plugin add python
+asdf plugin add 1password-cli
+asdf install
 
 brew update && brew upgrade && brew cleanup
 
