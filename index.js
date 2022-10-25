@@ -1,4 +1,4 @@
-const fs = require('fs')
+/*const fs = require('fs')
 const inquirer = require('inquirer')
 const config = require('./config')
 const command = require('./lib_node/command')
@@ -43,4 +43,4 @@ inquirer.prompt([{
   series(tasks, function(err, results) {
     console.log('package install complete')
   })
-})
+})*/
