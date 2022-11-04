@@ -80,20 +80,20 @@ fi
 git-lfs install
 
 # install oh-my-zsh
-if [[ ! -d "${ZSH}" ]]; then
+#if [[ ! -d "${ZSH}" ]]; then
   rm -r "$ZSH"
   curl -L -s "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
-fi
+#fi
 
-if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
+#if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
   info "cloning theme"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-fi
+#fi
 
-if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z" ]]; then
+#if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z" ]]; then
   info "cloning plugin "
   git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z
-fi
+#fi
 
 
 read "REPLY?Symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] "
