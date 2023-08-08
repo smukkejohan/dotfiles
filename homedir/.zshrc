@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 export DEFAULT_USER="$USER"
 
@@ -28,4 +28,5 @@ export PATH="$PNPM_HOME:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+eval "$(asdf exec direnv hook zsh)"
