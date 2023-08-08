@@ -123,16 +123,16 @@ cask "sqlpro-studio"
 cask "steam"
 cask "the-unarchiver"
 cask "tor-browser"
-cask "tower"
+#cask "tower"
 cask "transmission"
 cask "transmit"
-cask "tunnelblick"
-cask "virtualbox"
+#cask "tunnelblick"
+#cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
 cask "vnc-viewer"
 mas "Microsoft Remote Desktop", id: 715768417
-mas "Pages", id: 409201541
+#mas "Pages", id: 409201541
 mas "Patterns", id: 429449079
 mas "Quick Camera", id: 598853070
 mas "Remote Desktop", id: 409907375
