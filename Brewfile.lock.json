@@ -3417,12 +3417,6 @@
           "full_name": "logitech-options"
         }
       },
-      "macbreakz": {
-        "version": "5.46",
-        "options": {
-          "full_name": "macbreakz"
-        }
-      },
       "mongodb-compass": {
         "version": "1.33.1",
         "options": {
