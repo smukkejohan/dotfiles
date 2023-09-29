@@ -3501,12 +3501,6 @@
           "full_name": "tunnelblick"
         }
       },
-      "virtualbox": {
-        "version": "7.0.2,154219",
-        "options": {
-          "full_name": "virtualbox"
-        }
-      },
       "visual-studio-code": {
         "version": "1.72.2",
         "options": {
