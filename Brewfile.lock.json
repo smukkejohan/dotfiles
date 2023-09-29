@@ -7,9 +7,6 @@
       "homebrew/cask": {
         "revision": "6c2c9e571383cfcf90da6bc52ad2a0ef430fbbec"
       },
-      "homebrew/cask-drivers": {
-        "revision": "25dd97b0d97fe9e0f4528255be5a2c3a918d1350"
-      },
       "homebrew/cask-fonts": {
         "revision": "e74d945f607d48aad58315636443ce138751a0e8"
       },
