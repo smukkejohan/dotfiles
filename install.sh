@@ -82,7 +82,7 @@ git-lfs install
 # install oh-my-zsh
 #if [[ ! -d "${ZSH}" ]]; then
   rm -r "$ZSH"
-  curl -L -s "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
+  curl -L -s "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
 #fi
 
 #if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
