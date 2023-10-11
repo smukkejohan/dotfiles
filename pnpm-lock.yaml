@@ -6,7 +6,7 @@ specifiers:
   global: 4.4.0
   inquirer: ^9.2.11
   instant-markdown-d: 0.3.0
-  npm-check-updates: 16.14.5
+  npm-check-updates: ^16.14.5
   trash: 8.1.1
   vtop: 0.6.1
 
