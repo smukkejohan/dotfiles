@@ -29,7 +29,7 @@
   "homepage": "https://github.com/smukkejohan/dotfiles#readme",
   "dependencies": {
     "async.series": "0.5.2",
-    "eslint": "8.51.0",
+    "eslint": "8.56.0",
     "global": "4.4.0",
     "inquirer": "^9.2.11",
     "instant-markdown-d": "0.3.0",
