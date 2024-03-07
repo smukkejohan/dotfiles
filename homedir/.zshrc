@@ -24,9 +24,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+eval "$(asdf exec direnv hook zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-eval "$(asdf exec direnv hook zsh)"
