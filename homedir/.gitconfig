@@ -1,7 +1,8 @@
 [user]
-  name = Johan Bichel
-  email = public@johan.cc
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF+cKQbuMKc+VFzduDoXSkFfZjccv122C6GiwRN+h5Sn
+	name = Johan Bichel
+	email = public@johan.cc
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF+cKQbuMKc+VFzduDoXSkFfZjccv122C6GiwRN+h5Sn
+
 [github]
   # https://github.com/blog/180-local-github-config
   user = smukkejohan

@@ -16,6 +16,7 @@ export CASE_SENSITIVE="true"
 plugins=(colorize dirpersist autojump git cp asdf macos zsh-z)
 source $ZSH/oh-my-zsh.sh
 
+
 # Customize to your needs...
 unsetopt correct
 

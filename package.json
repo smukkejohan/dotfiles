@@ -9,7 +9,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrbichel/dotfiles.git"
+    "url": "git+https://github.com/smukkejohan/dotfiles.git"
   },
   "keywords": [
     "dotfiles",
@@ -24,20 +24,17 @@
   "author": "Johan Bichel Lindegaard <public@johan.cc>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrbichel/dotfiles/issues"
+    "url": "https://github.com/smukkejohan/dotfiles/issues"
   },
-  "homepage": "https://github.com/mrbichel/dotfiles#readme",
+  "homepage": "https://github.com/smukkejohan/dotfiles#readme",
   "dependencies": {
     "async.series": "0.5.2",
-    "eslint": "6.8.0",
+    "eslint": "8.51.0",
     "global": "4.4.0",
-    "inquirer": "^1.2.3",
-    "instant-markdown-d": "0.2.0",
-    "node-emoji": "^1.11.0",
-    "npm-check-updates": "4.1.2",
-    "npmlog": "^2.0.4",
-    "prettyjson": "1.2.1",
-    "trash": "6.1.1",
+    "inquirer": "^9.2.11",
+    "instant-markdown-d": "0.3.0",
+    "npm-check-updates": "^16.14.5",
+    "trash": "8.1.1",
     "vtop": "0.6.1"
   }
 }

@@ -15,6 +15,16 @@ install_brew() {
     brew bundle
 }
 
+create_dirs() {
+    declare -a dirs=(
+        "$HOME/dev"
+    )
+
+    for i in "${dirs[@]}"; do
+        mkdir "$i"
+    done
+}
+
 build_xcode() {
     if ! xcode-select --print-path &> /dev/null; then
         xcode-select --install &> /dev/null
@@ -32,6 +42,9 @@ build_xcode() {
 # include my library helpers for colorized echo and require_brew, etc
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
+
+printf "🗄 Creating directories\n"
+create_dirs
 
 printf "🛠 Installing Xcode Command Line Tools\n"
 build_xcode
@@ -67,20 +80,20 @@ fi
 git-lfs install
 
 # install oh-my-zsh
-if [[ ! -d "${ZSH}" ]]; then
-  rm -rf "$ZSH"
-  curl -L -s "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
-fi
+#if [[ ! -d "${ZSH}" ]]; then
+  rm -r "$ZSH"
+  curl -L -s "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" | sh
+#fi
 
-if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
+#if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
   info "cloning theme"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-fi
+#fi
 
-if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z" ]]; then
+#if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z" ]]; then
   info "cloning plugin "
   git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z
-fi
+#fi
 
 
 read "REPLY?Symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] "
@@ -115,7 +128,6 @@ asdf plugin add pnpm
 asdf plugin add ruby
 asdf plugin add python
 asdf plugin add 1password-cli
-asdf plugin add direnv
 asdf install
 
 brew update && brew upgrade && brew cleanup
