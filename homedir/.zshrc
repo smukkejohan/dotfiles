@@ -8,6 +8,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
+
 # Path to your oh-my-zsh configuration.
 export ZSH=~/.oh-my-zsh
 export ZSH_THEME="powerlevel10k/powerlevel10k"
